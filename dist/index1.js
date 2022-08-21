@@ -45,22 +45,6 @@ module.exports = OutputListener;
 
 /***/ }),
 
-/***/ 800:
-/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
-
-const os = __nccwpck_require__(37);
-const path = __nccwpck_require__(17);
-
-module.exports = (() => {
-  // If we're on Windows, then the executable ends with .exe
-  const exeSuffix = os.platform().startsWith('win') ? '.exe' : '';
-
-  return [process.env.TERRAGRUNT_CLI_PATH, `terragrunt-bin${exeSuffix}`].join(path.sep);
-})();
-
-
-/***/ }),
-
 /***/ 241:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -3032,7 +3016,7 @@ const core = __nccwpck_require__(186);
 const { exec } = __nccwpck_require__(514);
 
 const OutputListener = __nccwpck_require__(633);
-const pathToCLI = __nccwpck_require__(800);
+const pathToCLI = process.env.TERRAGRUNT_CLI_PATH;
 
 async function checkTerraform () {
   // Setting check to `true` will cause `which` to throw if terraform isn't found
