@@ -5,7 +5,6 @@
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 // Node.js core
-const os = __nccwpck_require__(37);
 const path = __nccwpck_require__(17);
 
 // External
@@ -15,13 +14,10 @@ const io = __nccwpck_require__(436);
 async function installWrapper (pathToCLI) {
   let source, target;
 
-  // If we're on Windows, then the executable ends with .exe
-  const exeSuffix = os.platform().startsWith('win') ? '.exe' : '';
-
-  // Rename terragrunt(.exe) to terragrunt-bin(.exe)
+  // Rename terragrunt to terragrunt-bin
   try {
-    source = [pathToCLI, `terragrunt${exeSuffix}`].join(path.sep);
-    target = [pathToCLI, `terragrunt-bin${exeSuffix}`].join(path.sep);
+    source = pathToCLI;
+    target = pathToCLI + '-bin';
     core.debug(`Moving ${source} to ${target}.`);
     await io.mv(source, target);
   } catch (e) {
@@ -32,7 +28,7 @@ async function installWrapper (pathToCLI) {
   // Install our wrapper as terraform
   try {
     source = __nccwpck_require__.ab + "index1.js";
-    target = [pathToCLI, 'terragrunt'].join(path.sep);
+    target = [pathToCLI].join(path.sep);
     core.debug(`Copying ${source} to ${target}.`);
     await io.cp(__nccwpck_require__.ab + "index1.js", target);
   } catch (e) {
