@@ -580,8 +580,8 @@ describe('Setup Terraform', () => {
 
     await setup();
 
-    expect(ioMv).toHaveBeenCalledWith(`file${path.sep}terraform`, `file${path.sep}terraform-bin`);
-    expect(ioCp).toHaveBeenCalledWith(wrapperPath, `file${path.sep}terraform`);
+    expect(ioMv).toHaveBeenCalledWith(`file${path.sep}terraform`, `file${path.sep}terragrunt-bin`);
+    expect(ioCp).toHaveBeenCalledWith(wrapperPath, `file${path.sep}terragrunt`);
   });
 
   test('installs wrapper on windows', async () => {
@@ -624,7 +624,7 @@ describe('Setup Terraform', () => {
 
     await setup();
 
-    expect(ioMv).toHaveBeenCalledWith(`file${path.sep}terraform.exe`, `file${path.sep}terraform-bin.exe`);
+    expect(ioMv).toHaveBeenCalledWith(`file${path.sep}terragrunt.exe`, `file${path.sep}terragrunt-bin.exe`);
     expect(ioCp).toHaveBeenCalledWith(wrapperPath, `file${path.sep}terraform`);
   });
 });

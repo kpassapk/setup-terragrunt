@@ -70,3 +70,6 @@ wrapper/dist
 # Jetbrains IDEs
 .idea/
 .iml
+
+# Mac files
+.DS_Store

@@ -4,7 +4,7 @@ const core = require('@actions/core');
 const { exec } = require('@actions/exec');
 
 const OutputListener = require('./lib/output-listener');
-const pathToCLI = require('./lib/terraform-bin');
+const pathToCLI = require('./lib/terragrunt-bin');
 
 async function checkTerraform () {
   // Setting check to `true` will cause `which` to throw if terraform isn't found

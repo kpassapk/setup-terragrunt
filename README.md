@@ -1,4 +1,4 @@
-# setup-terraform
+# setup-terragrunt
 
 <p align="left">
   <a href="https://github.com/hashicorp/setup-terraform/actions"><img alt="Continuous Integration" src="https://github.com/hashicorp/setup-terraform/workflows/Continuous%20Integration/badge.svg" /></a>
